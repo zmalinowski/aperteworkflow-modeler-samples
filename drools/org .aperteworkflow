@@ -1,0 +1,55 @@
+package org.aperteworkflow
+import pl.net.bluesoft.rnd.processtool.model.dict.ProcessDictionary
+import pl.net.bluesoft.rnd.processtool.model.processdata.ProcessComment
+import pl.net.bluesoft.rnd.processtool.model.nonpersistent.ProcessQueue
+import pl.net.bluesoft.rnd.processtool.model.BpmVariable
+import pl.net.bluesoft.rnd.processtool.model.UserData
+import pl.net.bluesoft.rnd.processtool.model.config.ProcessStateAction
+import pl.net.bluesoft.rnd.processtool.model.dict.ProcessDBDictionaryItem
+import pl.net.bluesoft.rnd.processtool.model.config.ProcessStateActionAttribute
+import pl.net.bluesoft.rnd.processtool.model.config.ProcessDefinitionConfig
+import pl.net.bluesoft.rnd.processtool.model.ProcessInstanceAttachmentAttribute
+import pl.net.bluesoft.rnd.processtool.model.ProcessInstanceLog
+import org.aperteworkflow.search.Searchable
+import pl.net.bluesoft.rnd.processtool.model.config.AbstractPermission
+import pl.net.bluesoft.rnd.processtool.model.config.ProcessStateActionPermission
+import pl.net.bluesoft.rnd.processtool.model.PersistentEntity
+import pl.net.bluesoft.rnd.processtool.model.dict.ProcessDictionaryItemExtension
+import pl.net.bluesoft.rnd.processtool.model.config.ProcessStateWidgetAttribute
+import pl.net.bluesoft.rnd.processtool.model.ProcessInstanceSimpleAttribute
+import pl.net.bluesoft.rnd.processtool.model.config.ProcessStatePermission
+import pl.net.bluesoft.rnd.processtool.model.config.ProcessToolSetting
+import pl.net.bluesoft.rnd.processtool.model.config.ProcessQueueConfig
+import org.aperteworkflow.search.ProcessInstanceSearchData
+import org.aperteworkflow.search.ProcessInstanceSearchAttribute
+import pl.net.bluesoft.rnd.processtool.model.config.ProcessStateWidgetPermission
+import pl.net.bluesoft.rnd.processtool.model.config.ProcessQueueRight
+import pl.net.bluesoft.rnd.processtool.model.dict.ProcessDBDictionary
+import pl.net.bluesoft.rnd.processtool.model.UserSubstitution
+import pl.net.bluesoft.rnd.processtool.model.ProcessInstanceAttribute
+import pl.net.bluesoft.rnd.processtool.model.config.ProcessStateConfiguration
+import pl.net.bluesoft.rnd.processtool.model.processdata.ProcessComments
+import pl.net.bluesoft.rnd.processtool.model.dict.ProcessDictionaryItem
+import pl.net.bluesoft.rnd.processtool.model.config.ProcessDefinitionPermission
+import pl.net.bluesoft.rnd.processtool.model.dict.ProcessDBDictionaryItemExtension
+import pl.net.bluesoft.rnd.processtool.model.processdata.ProcessDeadline
+import pl.net.bluesoft.rnd.processtool.model.config.ProcessStateWidget
+import pl.net.bluesoft.rnd.processtool.model.ProcessInstance
+global java.util.Map result
+
+
+
+
+
+rule 'aw-stub'
+dialect 'mvel'
+when
+	eval(true)
+	$pi : ProcessInstance ( ) 
+then
+	
+	$pi.setSimpleAttribute("avail", "true");
+ 	System.out.println("Available");
+	result.put("value", "OK");
+end
+
